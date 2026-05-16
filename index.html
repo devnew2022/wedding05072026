@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thiệp cưới</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- File CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+    body {
+      font-family: 'Playfair Display', serif;
+    }
+    .script-font {
+      font-family: 'Great Vibes', cursive;
+    }
+    .body1{
+      font-family: 'Poppins', sans-serif;
+      background:#f5f5f5;
+      overflow-x:hidden;
+    }
+
+    .hero{
+      position:relative;
+      width:100%;
+      min-height:100vh;
+
+      
+
+      /* Ảnh điện thoại không bị bể */
+      background: url('') center center no-repeat;   
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+
+      /* nền dư 2 bên */
+      background-color: #f5f5f5;
+    }
+
+    /* Lớp phủ mờ */
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(255,255,255,0.35);
+      backdrop-filter: blur(2px);
+    }
+
+    /* Khung nội dung */
+    .content{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width:850px;
+      background:rgba(255,255,255,0.45);
+      backdrop-filter: blur(8px);
+      border-radius:24px;
+      padding:50px 30px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    .title{
+      /*font-size:clamp(32px,5vw,60px);
+      color:#fff;
+      letter-spacing:8px;
+      font-weight:300;
+      margin-bottom:10px;
+      text-shadow:0 2px 10px rgba(0,0,0,0.25);*/
+
+      font-size: clamp(32px,5vw,60px);
+      color:#111;
+      letter-spacing:8px;
+      font-weight:600;
+
+      background:rgba(255,255,255,0.45);
+      display:inline-block;
+      padding:10px 20px;
+      border-radius:12px;
+
+      backdrop-filter: blur(4px);
+      }
+
+    .names{
+      font-family:'Great Vibes', cursive;
+      color:#9e0b16;
+      font-size:clamp(32px,4vw,56px);
+      margin-bottom:30px;
+    }
+
+    .desc{
+      color:#222;
+      font-size:clamp(15px,2vw,20px);
+      line-height:1.9;
+      max-width:700px;
+      margin:0 auto 45px;
+    }
+
+    /* Countdown */
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .time-box{
+      background:#a5000f;
+      color:#fff;
+      border-radius:18px;
+      padding:25px 15px;
+      box-shadow:0 8px 18px rgba(165,0,15,0.35);
+      transition:0.3s;
+    }
+
+    .time-box:hover{
+      transform:translateY(-5px);
+    }
+
+    .number{
+      font-size:clamp(30px,5vw,52px);
+      font-weight:600;
+      margin-bottom:8px;
+    }
+
+    .label{
+      font-size:clamp(14px,2vw,20px);
+      font-weight:300;
+    }
+
+    /* Mobile */
+    @media(max-width:768px){
+
+      .content{
+        padding:35px 20px;
+      }
+
+      .countdown{
+        grid-template-columns:repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:480px){
+
+      .hero{
+        padding:20px 12px;
+      }
+
+      .countdown{
+        gap:14px;
+      }
+
+      .time-box{
+        padding:22px 10px;
+      }
+    }
+
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 overflow-hidden">
+  <!-- ===== LỚP PHỦ TOÀN MÀN HÌNH ===== -->
+    <!-- ===== OVERLAY ===== -->
+    <!-- ===== OVERLAY THIỆP CƯỚI ===== -->
+<div id="intro-overlay"
+class="fixed inset-0 z-[9999] bg-gradient-to-b from-red-950 via-red-800 to-red-600 flex items-center justify-center overflow-hidden">
+
+  <!-- Bao thư -->
+  <div id="envelope"
+  class="relative cursor-pointer">
+
+    <!-- Nắp thư -->
+    <div id="flap"></div>
+
+    <!-- Thiệp -->
+    <div id="letter">
+
+      <img
+        src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200"
+        class="w-full h-full object-cover rounded-xl"
+      >
+
+      <div class="absolute inset-0 bg-black/30 rounded-xl flex items-center justify-center">
+
+        <div class="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full border border-white/40">
+
+          <h2 class="text-white text-2xl md:text-3xl tracking-[5px]">
+            OPEN
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+      <!-- Máy bay -->
+      <div id="plane"
+      class="absolute bottom-[-80vh] left-1/2 -translate-x-1/2 z-10 opacity-0">
+
+        ✈️
+
+
+      </div>
+
+    </div>
+    <!-- ===== end div ===== -->
+
+  <!-- ===== HERO / COVER ===== -->
+  <section class="bg-white text-center py-10 px-4">
+    <div class="max-w-4xl mx-auto gallery">
+      
+      <div class="photo-card">
+        <img src="img/anhcuoi.jfif" alt="couple"
+        class="mx-auto rounded-lg shadow-lg mb-6 object-cover">
+      </div>
+
+      <!-- 
+      <img src="https://via.placeholder.com/500x600" alt="couple"
+        class="mx-auto rounded-lg shadow-lg mb-6 object-cover">
+      -->
+      <div class="space-20px">
+        
+      </div>
+      <h1 class="script-font text-4xl text-red-800">Hải Triều</h1>
+      <span class="text-red-500 text-xl">&hearts;</span>
+      <h1 class="script-font text-4xl text-red-800 mb-4">Kim Ngân</h1>
+
+      <p class="text-lg tracking-wider text-red-700 font-semibold">
+        THƯ MỜI TIỆC CƯỚI
+      </p>
+
+      <!-- <p class="mt-3 text-gray-600">
+        Chủ nhật - 09:30 <br>
+        <span class="font-semibold text-red-700 text-xl">5.7.2026</span>
+      </p> -->
+
+      <p class="mt-6 text-lg font-semibold text-red-800">
+        LỄ THÀNH HÔN
+      </p>
+
+      <!-- TIME -->
+      <div class="main-time">10:30</div>
+
+      <!-- DATE -->
+      <div class="date-row">
+        <div class="date-item">
+          <span>CHỦ NHẬT</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="date-center">
+          <h1>05</h1>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="date-item">
+          <span>THÁNG 07</span>
+        </div>
+      </div>
+
+      <div class="year">2026</div>
+
+      <!-- <p class="text-gray-600">
+        Chủ nhật - 10:00 <br>
+        5.7.2026
+      </p> -->
+
+    </div>
+  </section>
+
+  <section class="bg-white py-10 px-4 border-t">
+  <div class="max-w-5xl mx-auto animation-section1">
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center ">
+
+      <!-- Nhà trai --><!-- div chạy từ trái -->
+      <div class="p-6 rounded-2xl border border-red-100 shadow-sm box1 left-box1">
+        <h2 class="text-2xl font-bold text-red-800 mb-4">
+          NHÀ TRAI
+        </h2>
+
+        <p class="text-gray-700 text-lg">
+          Ông: Trần Văn Xứng
+        </p>
+
+        <p class="text-gray-700 text-lg mt-2">
+          Bà: Nguyễn Thị Bích Vân
+        </p>
+
+        <p class="text-gray-500 mt-4">
+          Bình Minh - Vĩnh Long
+        </p>
+      </div>
+
+      <!-- Nhà gái --><!-- div chạy từ phải -->
+      <div class="p-6 rounded-2xl border border-red-100 shadow-sm box1 right-box1">
+        <h2 class="text-2xl font-bold text-red-800 mb-4">
+          NHÀ GÁI
+        </h2>
+
+        <p class="text-gray-700 text-lg">
+          Ông: Nguyễn Chí Thanh
+        </p>
+
+        <p class="text-gray-700 text-lg mt-2">
+          Bà: Nguyễn Thị Lài
+        </p>
+
+        <p class="text-gray-500 mt-4">
+          Xã Tân Quới - Vĩnh Long
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- ===== TÊN CÔ DÂU CHÚ RỂ ===== -->
+  <section class="text-center py-10 bg-gray-50">
+    <h2 class="text-lg tracking-wide text-gray-600">
+      TRÂN TRỌNG BÁO TIN LỄ THÀNH HÔN CỦA
+    </h2>
+
+    <h1 class="text-3xl text-red-800 font-bold mt-4">
+      Trần Hải Triều
+    </h1>
+
+    <p class="text-xl my-2 text-red-500">&hearts;</p>
+
+    <h1 class="text-3xl text-red-800 font-bold">
+      Nguyễn Thị Kim Ngân
+    </h1>
+  </section>
+
+  <!-- ===== CARD TIỆC CƯỚI ===== -->
+  <section class="py-10 px-4">
+    <div class="max-w-4xl mx-auto space-y-6">
+
+      <!-- Nhà trai -->
+      <div class="bg-red-800 text-white rounded-2xl p-6 shadow-lg text-center">
+        <h2 class="text-xl font-semibold"> HÔN LỄ ĐƯỢC CỬ HÀNH</h2><!-- TIỆC CƯỚI NHÀ TRAI -->
+        <p class="mt-2">Chủ nhật - 10:30</p>
+
+        <p class="text-3xl font-bold text-white mt-3">
+          5 . 7 . 2026
+        </p>
+        <p class="text-2xl font-bold text-white mt-2">
+          Nhằm ngày 21 tháng 05 năm Bính Ngọ
+        </p>
+
+
+        <p class="mt-4">Tại tư gia </p>
+        <p class="text-sm opacity-80">Tổ 18 - Ấp THÀNH PHÚ - XÃ TÂN QUỚI - VĨNH LONG</p>
+
+        <button>
+          <a 
+            href="https://www.google.com/maps?q=10.0675657,105.7924195&entry=gps&shh=CAE&lucs=,94297699,94284469,94231188,94280568,47071704,94218641,94282134,100799872,94286869&g_ep=CAISEjI2LjE2LjAuODk4OTU0MjE1MBgAIMi8BypSLDk0Mjk3Njk5LDk0Mjg0NDY5LDk0MjMxMTg4LDk0MjgwNTY4LDQ3MDcxNzA0LDk0MjE4NjQxLDk0MjgyMTM0LDEwMDc5OTg3Miw5NDI4Njg2OUICVk4%3D&skid=23c51721-f0cc-43e7-a2d1-16766342cef4&g_st=ic"
+            target="_blank"
+            class="inline-block mt-4 bg-white text-red-800 px-4 py-2 rounded-full"
+          >
+            Xem chỉ đường
+          </a>
+        </button>
+      </div>
+
+      
+
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section class="calendar1">
+      <div class="calendar">
+
+        <div class="calendar-header">
+          Tháng 7 / 2026
+        </div>
+
+        <div class="calendar-weekdays">
+          <span>T2</span>
+          <span>T3</span>
+          <span>T4</span>
+          <span>T5</span>
+          <span>T6</span>
+          <span>T7</span>
+          <span>CN</span>
+        </div>
+
+        <div class="calendar-days">
+
+          <span></span>
+          <span></span>
+          <span>1</span>
+          <span>2</span>
+
+          <span>3</span>
+          <span>4</span>
+          <span class="active-day">5</span>
+
+          <span>6</span>
+          <span>7</span>
+          <span>8</span>
+          <span>9</span>
+          <span>10</span>
+          <span>11</span>
+          <span>12</span>
+
+          <span>13</span>
+          <span>14</span>
+          <span>15</span>
+          <span>16</span>
+          <span>17</span>
+          <span>18</span>
+          <span>19</span>
+
+          <span>20</span>
+          <span>21</span>
+          <span>22</span>
+          <span>23</span>
+          <span>24</span>
+          <span>25</span>
+
+          <span>26</span>
+
+          <span>27</span>
+          <span>28</span>
+          <span>29</span>
+          <span>30</span>
+          <span>31</span>
+
+
+        </div>
+
+      </div>
+  </section>
+
+  <!-- Hero -->
+  <section class="hero" class="body1">
+
+    <div class="overlay"></div>
+
+    <div class="content">
+
+      <h1 class="title">INVITATION</h1>
+
+      <div class="names">
+        Hải Triều - Kim Ngân
+      </div>
+
+      <p class="desc">
+        Chúng mình sắp bắt đầu một hành trình mới cùng nhau.<br>
+        Niềm vui này sẽ trọn vẹn hơn khi có bạn bên cạnh.<br>
+        Cuộc sống quý giá không chỉ ở đích đến, mà còn ở những khoảnh khắc chia sẻ cùng nhau.<br>
+        Vì vậy, chúng mình mong được bạn chung vui trong ngày hạnh phúc này.
+      </p>
+
+      <!-- Countdown -->
+      <div class="countdown">
+
+        <div class="time-box">
+          <div class="number" id="days">00</div>
+          <div class="label">Ngày</div>
+        </div>
+
+        <div class="time-box">
+          <div class="number" id="hours">00</div>
+          <div class="label">Giờ</div>
+        </div>
+
+        <div class="time-box">
+          <div class="number" id="minutes">00</div>
+          <div class="label">Phút</div>
+        </div>
+
+        <div class="time-box">
+          <div class="number" id="seconds">00</div>
+          <div class="label">Giây</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="gift">
+    <!-- Box gửi quà -->
+    <div class="gift-box">
+
+      <h2>💝 Mừng cưới</h2>
+      <p>Xin cảm ơn lời chúc và tình cảm của bạn</p>
+
+      <button id="openGift" class="gift-btn">
+        Gửi quà cho tôi
+      </button>
+
+    </div>
+
+
+    <!-- Popup QR -->
+    <div class="popup" id="popupGift">
+
+      <div class="popup-content ">
+
+        <!-- Nút đóng -->
+        <span class="close-btn" id="closeGift">
+          ✕
+        </span>
+
+        <h3>Quét mã gửi quà 💖</h3>
+
+        <!-- Ảnh chú rể -->
+        <div class="person-box">
+          <h4>🤵 Chú Rể</h4>
+
+          <img
+            src="img/qrhaitrieu.jpg"
+            alt="QR chú rể"
+            class="qr-image"
+          >
+
+          <a
+            href="img/qrhaitrieu.jpg"
+            download
+            class="save-btn"
+          >
+            Lưu ảnh
+          </a>
+        </div>
+
+        <!-- Ảnh cô dâu -->
+        <div class="person-box">
+          <h4>👰 Cô Dâu</h4>
+
+          <img
+            src="img/qrkimngan.jpg"
+            alt="QR cô dâu"
+            class="qr-image"
+          >
+
+          <a
+            href="img/qrkimngan.jpg"
+            download
+            class="save-btn"
+          >
+            Lưu ảnh
+          </a>
+        </div>
+
+      </div>
+    </div>
+    </section>
+    <!-- end gửi quà -->
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="text-center py-6 text-gray-500 text-sm">
+    Designed by Hai Trieu IT ❤️
+  <!-- ===== NHẠC NỀN Nút nhạc ===== -->
+<button 
+  id="music-btn"
+  class="fixed bottom-5 left-5 z-50
+       w-14 h-14 rounded-full
+       flex items-center justify-center
+       text-2xl text-white
+       border-2 border-white/70
+       backdrop-blur-md
+       bg-transparent
+       hover:scale-110
+       transition-all duration-300"
+>
+  🎵
+</button>
+
+<!-- Nhạc nền -->
+<!-- Audio -->
+<audio id="bg-music" autoplay loop muted playsinline >
+  <source src="mp3/bantinhoi2.mp3" type="audio/mpeg">
+</audio>
+<!-- nhạc -->
+<script>
+  const music = document.getElementById("bg-music");
+  const btn = document.getElementById("music-btn");
+
+  // Auto play khi mở trang
+  window.addEventListener("load", async () => {
+    try {
+      await music.play();
+    } catch (e) {
+      console.log("Autoplay bị chặn");
+    }
+  });
+
+  // Khi người dùng chạm lần đầu -> bật tiếng
+  document.addEventListener("click", () => {
+    music.muted = false;
+    music.play();
+  }, { once: true });
+
+  // Nút bật/tắt nhạc
+  btn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      btn.innerHTML = "🎵";
+    } else {
+      music.pause();
+      btn.innerHTML = "🔇";
+    }
+  });
+</script>
+<!-- end nhạc -->
+
+<!-- ngày-->
+<script>
+
+    /*
+      ============================
+      CHỌN NGÀY CƯỚI TẠI ĐÂY
+      ============================
+      Format:
+      YYYY-MM-DDTHH:MM:SS
+    */
+
+    const weddingDate = new Date("2026-07-05T10:30:00").getTime();
+
+    const daysEl = document.getElementById("days");
+    const hoursEl = document.getElementById("hours");
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+
+    function updateCountdown(){
+
+      const now = new Date().getTime();
+
+      const distance = weddingDate - now;
+
+      // Nếu hết thời gian
+      if(distance <= 0){
+
+        daysEl.innerHTML = "0";
+        hoursEl.innerHTML = "0";
+        minutesEl.innerHTML = "0";
+        secondsEl.innerHTML = "0";
+
+        return;
+      }
+
+      // Tính thời gian
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+      );
+
+      const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+      );
+
+      const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+      );
+
+      // Hiển thị
+      daysEl.innerHTML = days;
+      hoursEl.innerHTML = hours;
+      minutesEl.innerHTML = minutes;
+      secondsEl.innerHTML = seconds;
+    }
+
+    // Chạy ngay
+    updateCountdown();
+
+    // Cập nhật mỗi giây
+    setInterval(updateCountdown, 1000);
+
+  </script>
+  <script src="js/clickopen.js"></script>
+<!-- end ngày-->
+  </footer>
+
+</body>
+</html>
